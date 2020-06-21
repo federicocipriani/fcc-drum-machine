@@ -8,11 +8,13 @@ function loadEventListener() {
 
     pads.addEventListener('click', playSoundClick);
     document.addEventListener('keydown', playSoundKeyboard);
+    document.addEventListener('keyup', releaseButton);
 
 }
 
 function playSoundClick(e) {
-    let sound = e.target.children[0];
+    const button = e.target;
+    let sound = button.children[0];
     var playPromise = sound.play();
     if (playPromise !== undefined) {
         playPromise.then(_ => {
@@ -25,6 +27,8 @@ function playSoundClick(e) {
         });
     }
     displaySound(sound);
+    button.classList.add('active');
+    setTimeout(releaseButton, 100);
 }
 
 function playSoundKeyboard(e) {
@@ -42,11 +46,18 @@ function playSoundKeyboard(e) {
                   // Show paused UI.
                 });
             }
-            displaySound(sound)
+            displaySound(sound);
+            const button = item.parentElement;
+            button.classList.add('active');
         }
     })
 }
 
 function displaySound(sound) {
     display.innerText = sound.parentElement.id;
+}
+
+function releaseButton() {
+    console.log(ids[0].parentElement);
+    ids.forEach(item => item.parentElement.classList.remove('active'));
 }
