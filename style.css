@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
-    --primary-color: #222B56;
+    --primary-color: #5fdde5;
+    --secondary-color: #D69510;
+    --tertiary-color: #1A9695;
 }
 
 * {
@@ -9,8 +11,7 @@
 }
 
 body {
-    background-color: #5fdde5;
-    /* background-color: #00a8cc; */
+    background-color: var(--primary-color);
     margin: 0;
     padding: 0;
     font-family: 'VT323', monospace;
@@ -28,14 +29,14 @@ h1 {
     font-size: 4em;
     color: white;
     text-shadow:
-        1px 1px #1A9695,
-        2px 2px #1A9695,
-        3px 3px #1A9695;
+        1px 1px var(--tertiary-color),
+        2px 2px var(--tertiary-color),
+        3px 3px var(--tertiary-color);
     margin-bottom: 30px;
 }
 
 #drum-machine {
-    background-color: #D69510;
+    background-color: var(--secondary-color);
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -66,7 +67,7 @@ h1 {
 
 .drum-pad {
     cursor: pointer;
-    background-color: #1A9695;
+    background-color: var(--tertiary-color);
     color: white;
     padding: 15px 25px;
     border-radius: 10px;
